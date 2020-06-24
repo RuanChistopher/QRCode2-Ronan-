@@ -1,5 +1,7 @@
 {
   "name": "qrfinal",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

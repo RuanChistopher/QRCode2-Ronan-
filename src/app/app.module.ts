@@ -9,13 +9,28 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { QRScanner } from '@ionic-native/qr-scanner/ngx';
+import { Dialogs } from '@ionic-native/dialogs/ngx';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { IonicStorageModule } from '@ionic/storage';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule,
+     IonicModule.forRoot(),
+      AppRoutingModule,
+      IonicStorageModule.forRoot({
+        name: '_mydb',
+        driverOrder:['indexeddb', 'sqlite', 'websql']
+      })
+    ],
   providers: [
     StatusBar,
     SplashScreen,
+    QRScanner,
+    Dialogs,
+    ScreenOrientation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
